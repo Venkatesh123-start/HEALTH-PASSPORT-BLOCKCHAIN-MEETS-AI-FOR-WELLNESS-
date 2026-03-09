@@ -1,0 +1,60 @@
+.patients-list {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.patients-list h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.patients-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.patients-list th,
+.patients-list td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.patients-list th {
+  background: #f0f3f7;
+}
+
+.grant-btn {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.revoke-btn {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.grant-btn:hover {
+  opacity: 0.8;
+}
+
+.revoke-btn:hover {
+  opacity: 0.8;
+}
+
+.loading,
+.no-data {
+  padding: 20px;
+  color: #555;
+  text-align: center;
+}

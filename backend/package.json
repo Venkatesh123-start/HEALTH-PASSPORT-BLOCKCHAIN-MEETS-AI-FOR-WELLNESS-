@@ -1,0 +1,31 @@
+{
+  "name": "medivault-backend",
+  "version": "1.0.0",
+  "description": "MediVault Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "axios": "^1.13.6",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.6",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.6.1",
+    "ethers": "^5.8.0",
+    "express": "^4.22.1",
+    "form-data": "^4.0.5",
+    "ipfs-http-client": "^60.0.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.23.0",
+    "morgan": "^1.10.1",
+    "multer": "^1.4.5-lts.1",
+    "solc": "^0.8.34",
+    "web3": "^1.10.0",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

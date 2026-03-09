@@ -1,0 +1,50 @@
+.insurance-wrapper {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 1000px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.insurance-wrapper h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #28a745;
+}
+
+.insurance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.insurance-table th,
+.insurance-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.insurance-table th {
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 6px 6px 0 0;
+}
+
+.insurance-table tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+.insurance-table tr:hover {
+  background-color: #d4f7e6;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 50px;
+  color: #555;
+}

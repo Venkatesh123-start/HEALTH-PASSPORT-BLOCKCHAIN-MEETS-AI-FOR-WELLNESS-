@@ -1,0 +1,65 @@
+.notifications {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.notifications h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.notifications ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notifications li {
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.notifications li:hover {
+  background-color: #f9f9f9;
+}
+
+.notifications li.new {
+  border-left-color: #3498db;
+}
+
+.notifications li.info {
+  border-left-color: #2ecc71;
+}
+
+.notifications li.warning {
+  border-left-color: #f1c40f;
+}
+
+.notifications li.alert {
+  border-left-color: #e74c3c;
+}
+
+.notif-date {
+  font-size: 0.8rem;
+  color: #999;
+  margin-right: 10px;
+}
+
+.notif-message {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.loading, .no-data {
+  padding: 20px;
+  text-align: center;
+  color: #555;
+}
