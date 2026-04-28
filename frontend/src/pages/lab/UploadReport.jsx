@@ -18,7 +18,7 @@ const UploadReport = ({ token }) => {
 
   const fetchPatients = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/labs/patients", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/labs/patients`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.ok) {
@@ -69,7 +69,7 @@ const UploadReport = ({ token }) => {
       }
 
       // Upload report to backend API
-      const response = await fetch("http://localhost:5000/api/labs/add", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/labs/add`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

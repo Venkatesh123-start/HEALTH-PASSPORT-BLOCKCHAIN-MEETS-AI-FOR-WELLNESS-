@@ -8,7 +8,7 @@ const Appointments = ({ token, doctorId }) => {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/doctor/${doctorId}/appointments`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctor/${doctorId}/appointments`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -24,7 +24,7 @@ const Appointments = ({ token, doctorId }) => {
 
   const handleAction = async (id, action) => {
     try {
-      await fetch(`http://localhost:5000/api/appointments/${id}/${action}`, {
+      await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/appointments/${id}/${action}`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });

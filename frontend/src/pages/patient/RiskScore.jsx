@@ -18,7 +18,7 @@ const RiskScore = ({ token, patientId }) => {
       setLoading(true);
       setError(null);
       const res = await fetch(
-        `http://localhost:5000/api/ai/risk/${patientId}?t=${Date.now()}`,
+        `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/ai/risk/${patientId}?t=${Date.now()}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

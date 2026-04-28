@@ -18,7 +18,7 @@ const DoctorsList = ({ token, patientId }) => {
     try {
       setLoading(true);
       // Fetch doctors list
-      const res = await fetch("http://localhost:5000/api/doctors/list", {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/doctors/list`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -31,7 +31,7 @@ const DoctorsList = ({ token, patientId }) => {
         for (const doc of data.data) {
           try {
             const accessRes = await fetch(
-              `http://localhost:5000/api/patients/${patientId}/access-status/${doc._id}`,
+              `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/patients/${patientId}/access-status/${doc._id}`,
               { headers: { Authorization: `Bearer ${token}` } }
             );
             const accessData = await accessRes.json();
@@ -57,7 +57,7 @@ const DoctorsList = ({ token, patientId }) => {
 
   const requestAccess = async (doctorId) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/doctors/request-access`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctors/request-access`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ const DoctorsList = ({ token, patientId }) => {
                     onClick={async () => {
                       // Fetch full doctor details if access is granted
                       try {
-                        const res = await fetch(`http://localhost:5000/api/doctors/${doc._id}`, {
+                        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctors/${doc._id}`, {
                           headers: { Authorization: `Bearer ${token}` },
                         });
                         const data = await res.json();

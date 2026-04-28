@@ -13,7 +13,7 @@ const HealthTrends = ({ token, patientId }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("http://localhost:5000/api/vitals/my-vitals?limit=100", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/vitals/my-vitals?limit=100`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -34,7 +34,7 @@ const HealthTrends = ({ token, patientId }) => {
     if (!patientId) return;
     try {
       const response = await fetch(
-        `http://localhost:5000/api/vitals/trends/${patientId}?days=${timeRange}`,
+        `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/vitals/trends/${patientId}?days=${timeRange}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const data = await response.json();

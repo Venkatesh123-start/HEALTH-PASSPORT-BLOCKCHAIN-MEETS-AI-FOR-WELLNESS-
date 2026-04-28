@@ -11,7 +11,7 @@ const ReviewForm = ({ doctorId, patientId, token, onReviewSubmitted }) => {
     setSubmitting(true);
     setMessage("");
     try {
-      const res = await fetch(`http://localhost:5000/api/reviews/doctor/${doctorId}/review`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/reviews/doctor/${doctorId}/review`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

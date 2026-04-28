@@ -15,7 +15,7 @@ const Appointments = ({ token, patientId, countOnly }) => {
 
   const fetchAppointments = async () => {
     const res = await fetch(
-      `http://localhost:5000/api/appointments/patient/${patientId}`,
+      `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/appointments/patient/${patientId}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     const data = await res.json();
@@ -23,7 +23,7 @@ const Appointments = ({ token, patientId, countOnly }) => {
   };
 
   const fetchDoctors = async () => {
-    const res = await fetch(`http://localhost:5000/api/patients/${patientId}/approved-doctors`, {
+    const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/patients/${patientId}/approved-doctors`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -38,7 +38,7 @@ const Appointments = ({ token, patientId, countOnly }) => {
       return;
     }
     try {
-      const res = await fetch(`http://localhost:5000/api/appointments/book`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/appointments/book`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

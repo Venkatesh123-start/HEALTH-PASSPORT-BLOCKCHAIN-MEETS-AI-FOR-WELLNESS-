@@ -20,7 +20,7 @@ const ApprovedDoctorAccess = (props) => {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/patients/access/approved",
+        `${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/patients/access/approved`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -63,7 +63,7 @@ const ApprovedDoctorAccess = (props) => {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/patients/access/requests/${doctorId}`,
+        `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/patients/access/requests/${doctorId}`,
         {
           method: "DELETE",
           headers: {

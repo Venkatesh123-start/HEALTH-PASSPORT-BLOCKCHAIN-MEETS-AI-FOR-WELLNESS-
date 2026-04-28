@@ -49,7 +49,7 @@ const DoctorDashboard = () => {
   const fetchNotifications = async (badgeOnly = false) => {
     if (!user?._id) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/notifications/${user._id}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/notifications/${user._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();

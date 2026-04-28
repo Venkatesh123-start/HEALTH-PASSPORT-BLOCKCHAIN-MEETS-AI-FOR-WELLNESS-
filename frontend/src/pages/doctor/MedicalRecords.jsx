@@ -14,7 +14,7 @@ const MedicalRecords = ({ token, doctorId }) => {
         setError(null);
 
         const res = await fetch(
-          `http://localhost:5000/api/doctor/${doctorId}/records`,
+          `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctor/${doctorId}/records`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -45,7 +45,7 @@ const MedicalRecords = ({ token, doctorId }) => {
       // If record is not encrypted, use simple server download
       if (!rec.isEncrypted) {
         const response = await fetch(
-          `http://localhost:5000/api/records/${rec._id}/download`,
+          `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/records/${rec._id}/download`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -66,7 +66,7 @@ const MedicalRecords = ({ token, doctorId }) => {
 
       // Encrypted record: fetch decryption key (doctor) and decrypt on client
       const keyRes = await fetch(
-        `http://localhost:5000/api/records/${rec._id}/decrypt-key-doctor`,
+        `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/records/${rec._id}/decrypt-key-doctor`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

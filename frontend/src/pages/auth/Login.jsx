@@ -30,7 +30,7 @@ const Login = () => {
       }
 
       const response = await fetch(
-        "http://localhost:5000/api/auth/login",
+        `${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/auth/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

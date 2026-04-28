@@ -11,7 +11,7 @@ const Visits = () => {
     if (!patientAddress) return alert("Enter patient address");
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:5000/api/records/${patientAddress}`);
+      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/records/${patientAddress}`);
       setRecords(res.data.records);
     } catch (err) {
       console.error(err);

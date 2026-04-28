@@ -16,8 +16,8 @@ const Prescriptions = ({ token, patientId }) => {
     try {
       const url =
         filter === "all"
-          ? "http://localhost:5000/api/prescriptions/my-prescriptions"
-          : `http://localhost:5000/api/prescriptions/my-prescriptions?status=${filter}`;
+          ? `${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/prescriptions/my-prescriptions`
+          : `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/prescriptions/my-prescriptions?status=${filter}`;
 
       const response = await fetch(url, {
         headers: { Authorization: `Bearer ${token}` },
@@ -51,7 +51,7 @@ const Prescriptions = ({ token, patientId }) => {
   const markAsCompleted = async (prescriptionId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/prescriptions/${prescriptionId}/status`,
+        `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/prescriptions/${prescriptionId}/status`,
         {
           method: "PATCH",
           headers: {
@@ -76,7 +76,7 @@ const Prescriptions = ({ token, patientId }) => {
     setVerificationResult(null);
     try {
       const response = await fetch(
-        `http://localhost:5000/api/prescriptions/${prescriptionId}/verify`,
+        `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/prescriptions/${prescriptionId}/verify`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

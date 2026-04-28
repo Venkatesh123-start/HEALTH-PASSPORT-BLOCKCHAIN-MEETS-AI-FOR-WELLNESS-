@@ -20,7 +20,7 @@ const MedicalRecords = ({ token, patientId, countOnly }) => {
     setLoading(true);
     try {
       // Use my-records endpoint for patient's own encrypted records
-      const res = await fetch("http://localhost:5000/api/records/my-records", {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/records/my-records`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -30,7 +30,7 @@ const MedicalRecords = ({ token, patientId, countOnly }) => {
         console.error("Failed to fetch records:", data.message);
         // Fallback to patient records endpoint
         const fallbackRes = await fetch(
-          `http://localhost:5000/api/records/patient/${patientId}`,
+          `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/records/patient/${patientId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         const fallbackData = await fallbackRes.json();
@@ -87,7 +87,7 @@ const MedicalRecords = ({ token, patientId, countOnly }) => {
         formData.append("mimeType", encryptedResult.mimeType);
 
         // Upload to encrypted endpoint
-        const res = await fetch("http://localhost:5000/api/records/upload-encrypted", {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/records/upload-encrypted`, {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },
           body: formData,
@@ -113,7 +113,7 @@ const MedicalRecords = ({ token, patientId, countOnly }) => {
         formData.append("recordType", recordType);
 
         const res = await fetch(
-          `http://localhost:5000/api/records/upload/${patientId}`,
+          `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/records/upload/${patientId}`,
           {
             method: "POST",
             headers: { Authorization: `Bearer ${token}` },
@@ -159,7 +159,7 @@ const MedicalRecords = ({ token, patientId, countOnly }) => {
   const handleDecryptDownload = async (record) => {
     if (!record.isEncrypted) {
       // Regular download for unencrypted files
-      window.open(`http://localhost:5000/api/records/${record._id}/download`, "_blank");
+      window.open(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/records/${record._id}/download`, "_blank");
       return;
     }
 
@@ -168,7 +168,7 @@ const MedicalRecords = ({ token, patientId, countOnly }) => {
     try {
       // Step 1: Get decryption key from backend
       const keyRes = await fetch(
-        `http://localhost:5000/api/records/${record._id}/decrypt-key`,
+        `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/records/${record._id}/decrypt-key`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const keyData = await keyRes.json();

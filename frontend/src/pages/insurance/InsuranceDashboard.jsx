@@ -67,7 +67,7 @@ const InsuranceDashboard = () => {
     try {
       setNotifLoading(true);
       setNotifError(null);
-      const res = await fetch(`http://localhost:5000/api/notifications/${user._id}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/notifications/${user._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -117,7 +117,7 @@ const InsuranceDashboard = () => {
 
   const fetchClaims = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/claims`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/claims`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -143,7 +143,7 @@ const InsuranceDashboard = () => {
     try {
       setPoliciesLoading(true);
       setPoliciesError(null);
-      const res = await fetch(`http://localhost:5000/api/insurance/${policyPatientId}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/insurance/${policyPatientId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -174,7 +174,7 @@ const InsuranceDashboard = () => {
         coverageAmount: Number(addPolicyForm.coverageAmount || 0),
         patient: policyPatientId,
       };
-      const res = await fetch(`http://localhost:5000/api/insurance/add`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/insurance/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -211,7 +211,7 @@ const InsuranceDashboard = () => {
 
       // If email provided, resolve to patient ID via insurance policies
       if (recordsPatientId.includes("@")) {
-        const r = await fetch(`http://localhost:5000/api/insurance/${recordsPatientId}`, {
+        const r = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/insurance/${recordsPatientId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const pdata = await r.json();
@@ -226,7 +226,7 @@ const InsuranceDashboard = () => {
         pid = typeof first.patient === "string" ? first.patient : first.patient?._id || first.patient;
       }
 
-      const res = await fetch(`http://localhost:5000/api/records/patient/${pid}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/records/patient/${pid}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -246,7 +246,7 @@ const InsuranceDashboard = () => {
     try {
       setClaimsLoading(true);
       setClaimsError(null);
-      const res = await fetch(`http://localhost:5000/api/claims`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/claims`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -275,7 +275,7 @@ const InsuranceDashboard = () => {
         alert("Please enter a valid amount greater than 0");
         return;
       }
-      const res = await fetch(`http://localhost:5000/api/claims`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/claims`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -309,7 +309,7 @@ const InsuranceDashboard = () => {
 
   const updateClaimStatus = async (id, status) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/claims/${id}/status`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/claims/${id}/status`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -742,7 +742,7 @@ const UploadPolicyDocuments = ({ token }) => {
     try {
       setLoadingPolicies(true);
       setMessage("");
-      const res = await fetch(`http://localhost:5000/api/insurance/${encodeURIComponent(patientIdentifier)}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/insurance/${encodeURIComponent(patientIdentifier)}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -773,7 +773,7 @@ const UploadPolicyDocuments = ({ token }) => {
       for (const f of files) {
         const fd = new FormData();
         fd.append("file", f);
-        const res = await fetch(`http://localhost:5000/api/insurance/${selectedPolicy}/documents`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/insurance/${selectedPolicy}/documents`, {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },
           body: fd,

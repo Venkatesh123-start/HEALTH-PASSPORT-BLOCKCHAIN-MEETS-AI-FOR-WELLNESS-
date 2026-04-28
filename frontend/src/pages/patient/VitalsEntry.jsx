@@ -92,7 +92,7 @@ const VitalsEntry = ({ token, patientId, onSuccess }) => {
     setSuccess(null);
 
     try {
-      const response = await fetch("http://localhost:5000/api/vitals", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/vitals`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

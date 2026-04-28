@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: medivault_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - medivault_network
+
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    container_name: medivault_ml
+    ports:
+      - "5002:5002"
+    networks:
+      - medivault_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: medivault_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGO_URI=mongodb://mongodb:27017/medivault
+      - JWT_SECRET=medivaultsecretkey
+      - JWT_EXPIRE=7d
+      # Using host.docker.internal to access Ganache running on the host machine
+      - RPC_URL=http://host.docker.internal:8545
+      - PRIVATE_KEY=0x660562708e9a6f0b84d7227b278529aeaafb9c2654608dec81d7c54e18cfeaf2
+      - CONTRACT_ADDRESS=0xD690795eda9d90B1E0A1987B37bbec11F8bb0eb7
+      - ML_SERVICE_URL=http://ml-service:5002
+      - FRONTEND_URL=http://localhost:3000
+      - ENCRYPTION_SECRET=medivaultsupersecurekey
+    depends_on:
+      - mongodb
+      - ml-service
+    networks:
+      - medivault_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_BACKEND_URL=http://localhost:5000
+        - REACT_APP_ML_SERVICE_URL=http://localhost:5002
+    container_name: medivault_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - medivault_network
+
+volumes:
+  mongodb_data:
+
+networks:
+  medivault_network:
+    driver: bridge

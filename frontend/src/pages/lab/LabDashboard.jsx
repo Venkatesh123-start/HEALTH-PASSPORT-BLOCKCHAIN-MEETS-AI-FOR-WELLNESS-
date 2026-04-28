@@ -64,7 +64,7 @@ const LabDashboard = () => {
 
   const fetchDashboardData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/labs/dashboard", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/labs/dashboard`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.ok) {
@@ -84,7 +84,7 @@ const LabDashboard = () => {
     try {
       setNotifLoading(!initialFetch);
       setNotifError(null);
-      const res = await fetch(`http://localhost:5000/api/notifications/${user._id}`,
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/notifications/${user._id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -118,7 +118,7 @@ const LabDashboard = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/update-password", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/auth/update-password`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

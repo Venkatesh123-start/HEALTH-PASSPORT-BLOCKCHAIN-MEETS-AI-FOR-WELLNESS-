@@ -64,19 +64,19 @@ const Signup = () => {
       };
 
       if (role === "patient") {
-        endpoint = "http://localhost:5000/api/patients/register";
+        endpoint = `${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/patients/register`;
       } else if (role === "doctor") {
-        endpoint = "http://localhost:5000/api/doctors/register";
+        endpoint = `${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/doctors/register`;
         payload.license = formData.license;
         payload.speciality = formData.speciality;
       } else if (role === "lab") {
-        endpoint = "http://localhost:5000/api/labs/register";
+        endpoint = `${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/labs/register`;
         payload.labName = formData.labName;
         payload.licenseNumber = formData.license;
         payload.phone = formData.phone;
         payload.address = formData.address;
       } else if (role === "insurance") {
-        endpoint = "http://localhost:5000/api/insurance/register";
+        endpoint = `${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/insurance/register`;
         payload.companyName = formData.companyName;
         payload.licenseNumber = formData.license;
         payload.phone = formData.phone;

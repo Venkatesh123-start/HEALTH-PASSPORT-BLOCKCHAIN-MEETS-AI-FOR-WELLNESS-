@@ -9,7 +9,7 @@ const AccessRequests = ({ token, doctorId }) => {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/doctors/${doctorId}/access-requests`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctors/${doctorId}/access-requests`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -33,7 +33,7 @@ const AccessRequests = ({ token, doctorId }) => {
   const handleAction = async (patientId, action) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/doctors/${doctorId}/patient/${patientId}/access`,
+        `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctors/${doctorId}/patient/${patientId}/access`,
         {
           method: "PATCH",
           headers: {

@@ -25,7 +25,7 @@ const LabReports = () => {
 
       try {
         const patientId = storedUser._id;
-        const res = await fetch(`http://localhost:5000/api/labs/patient/${patientId}`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/labs/patient/${patientId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -59,7 +59,7 @@ const LabReports = () => {
       // If report has a file, download the actual file
       if (report.reportFile && report.reportFile.path) {
         console.log("[Download] File found, downloading from API...");
-        const response = await fetch(`http://localhost:5000/api/labs/download/${report._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/labs/download/${report._id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         

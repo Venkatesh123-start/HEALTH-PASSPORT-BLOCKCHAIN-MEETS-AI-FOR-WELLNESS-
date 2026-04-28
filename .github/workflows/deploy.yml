@@ -1,0 +1,63 @@
+name: MediVault CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      # 1. Build Backend Image
+      - name: Build Backend Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./backend
+          push: false # Set to true when pushing to a registry
+          tags: medivault-backend:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # 2. Build Frontend Image
+      - name: Build Frontend Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./frontend
+          push: false
+          tags: medivault-frontend:latest
+          build-args: |
+            REACT_APP_BACKEND_URL=https://api.medivault.com
+            REACT_APP_ML_SERVICE_URL=https://ml.medivault.com
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # 3. Build ML-Service Image
+      - name: Build ML-Service Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./ml-service
+          push: false
+          tags: medivault-ml:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Placeholder Deploy Step
+        run: |
+          echo "Builds succeeded!"
+          echo "To complete deployment, add steps to push the images to a container registry (e.g., Docker Hub, AWS ECR, GitHub Container Registry)."
+          echo "Then, add steps to trigger a deployment on your target platform (e.g., AWS ECS, Render, Vercel for frontend)."

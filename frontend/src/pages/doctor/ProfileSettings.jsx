@@ -16,7 +16,7 @@ const ProfileSettings = ({ token, doctorId }) => {
   useEffect(() => {
     const fetchDoctor = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/doctor/${doctorId}`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctor/${doctorId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -44,7 +44,7 @@ const ProfileSettings = ({ token, doctorId }) => {
     e.preventDefault();
     setMessage("");
     try {
-      const res = await fetch(`http://localhost:5000/api/doctor/${doctorId}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctor/${doctorId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const ProfileSettings = ({ token, doctorId }) => {
       return;
     }
     try {
-      const res = await fetch(`http://localhost:5000/api/doctor/${doctorId}/password`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctor/${doctorId}/password`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -10,7 +10,7 @@ const Notifications = ({ token, doctorId, countOnly }) => {
     try {
       setLoading(true);
       setError(null);
-      const res = await fetch(`http://localhost:5000/api/doctor/${doctorId}/notifications`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctor/${doctorId}/notifications`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();

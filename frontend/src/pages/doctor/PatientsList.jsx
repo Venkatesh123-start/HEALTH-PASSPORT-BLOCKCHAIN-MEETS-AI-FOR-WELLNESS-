@@ -9,7 +9,7 @@ const PatientsList = ({ token, doctorId }) => {
   useEffect(() => {
     const fetchPatients = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/doctors/${doctorId}/patients`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctors/${doctorId}/patients`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -33,7 +33,7 @@ const PatientsList = ({ token, doctorId }) => {
   const handleRevokeAccess = async (patientId) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/doctors/${doctorId}/patient/${patientId}/access`,
+        `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/doctors/${doctorId}/patient/${patientId}/access`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },

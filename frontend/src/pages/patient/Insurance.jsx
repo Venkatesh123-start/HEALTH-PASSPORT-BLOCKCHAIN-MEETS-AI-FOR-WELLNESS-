@@ -33,7 +33,7 @@ const Insurance = ({ token, patientId, countOnly }) => {
 
   const fetchPolicies = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/insurance/${patientId}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/insurance/${patientId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -45,7 +45,7 @@ const Insurance = ({ token, patientId, countOnly }) => {
 
   const fetchOverview = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/insurance/${patientId}/overview`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/insurance/${patientId}/overview`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -59,7 +59,7 @@ const Insurance = ({ token, patientId, countOnly }) => {
 
   const fetchClaims = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/claims/patient/${patientId}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/claims/patient/${patientId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -85,7 +85,7 @@ const Insurance = ({ token, patientId, countOnly }) => {
       for (const f of claimForm.files) {
         fd.append("files", f);
       }
-      const res = await fetch(`http://localhost:5000/api/claims/patient`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/claims/patient`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: fd,
