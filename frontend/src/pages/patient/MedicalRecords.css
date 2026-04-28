@@ -1,0 +1,621 @@
+/* Medical Records Page Styles */
+
+.records-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.records-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.records-container .subtitle {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+/* Upload Section */
+.upload-section {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+  margin-bottom: 32px;
+}
+
+.upload-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group input[type="file"] {
+  padding: 10px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-group input[type="file"]:hover {
+  border-color: #3b82f6;
+}
+
+.file-info {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+.upload-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  align-self: flex-start;
+}
+
+.upload-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.upload-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Upload Result */
+.upload-result {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.upload-result.success {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border: 1px solid #28a745;
+}
+
+.upload-result.error {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  border: 1px solid #dc3545;
+}
+
+.upload-result h4 {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+}
+
+.result-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.result-item .label {
+  font-weight: 600;
+  min-width: 100px;
+}
+
+.result-item code.hash {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: "Monaco", "Consolas", monospace;
+  font-size: 0.85rem;
+  word-break: break-all;
+}
+
+.result-item .view-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.result-item .view-link:hover {
+  text-decoration: underline;
+}
+
+.result-item.warning {
+  color: #856404;
+  font-size: 0.9rem;
+}
+
+/* Records Section */
+.records-section {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+}
+
+.records-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.no-data p {
+  margin: 8px 0;
+}
+
+/* Records Table */
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.records-table th,
+.records-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.records-table th {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.records-table th:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.records-table th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.records-table tr:hover {
+  background-color: #f8f9ff;
+}
+
+.records-table td strong {
+  display: block;
+  color: #333;
+}
+
+.records-table td .description {
+  display: block;
+  color: #888;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* Type Badge */
+.type-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.type-badge.prescription {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.type-badge.lab-report {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.type-badge.scan {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.type-badge.diagnosis {
+  background: #fce4ec;
+  color: #c2185b;
+}
+
+.type-badge.insurance {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.type-badge.other {
+  background: #eceff1;
+  color: #546e7a;
+}
+
+/* Hash Cell */
+.hash-cell {
+  font-family: "Monaco", "Consolas", monospace;
+  font-size: 0.8rem;
+  background: #f5f5f5;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.verified-badge {
+  display: inline-block;
+  margin-left: 6px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.action-btn.view {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.action-btn.view:hover {
+  background: #bbdefb;
+}
+
+.action-btn.download {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.action-btn.download:hover {
+  background: #c8e6c9;
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 60px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Encryption Toggle */
+.encryption-toggle {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+  border-radius: 12px;
+  border: 1px solid #dde4ff;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-label input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-slider {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  background: #ccc;
+  border-radius: 26px;
+  transition: background 0.3s;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-label input:checked + .toggle-slider {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+}
+
+.toggle-label input:checked + .toggle-slider::before {
+  transform: translateX(24px);
+}
+
+.toggle-text {
+  font-weight: 600;
+  color: #333;
+}
+
+.encryption-hint {
+  display: block;
+  margin-top: 8px;
+  margin-left: 62px;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* Encrypted Notice in Result */
+.result-item.encrypted-notice {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #1565c0;
+  font-weight: 500;
+}
+
+/* IPFS Hash Link */
+.hash-link {
+  font-family: "Monaco", "Consolas", monospace;
+  font-size: 0.8rem;
+  background: #f5f5f5;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #3b82f6;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.hash-link:hover {
+  background: #e8ebff;
+  text-decoration: underline;
+}
+
+/* Status Cell */
+.status-cell {
+  display: flex;
+  gap: 6px;
+}
+
+.encrypted-badge,
+.verified-badge {
+  font-size: 1rem;
+}
+
+.encrypted-badge {
+  color: #1976d2;
+}
+
+/* Action Button as button element */
+button.action-btn {
+  border: none;
+  cursor: pointer;
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+button.action-btn:hover:not(:disabled) {
+  background: #c8e6c9;
+}
+
+button.action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .records-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .encryption-hint {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .records-table {
+    font-size: 0.85rem;
+  }
+
+  .records-table th,
+  .records-table td {
+    padding: 10px 8px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
+
+/* Clickable Badge */
+.verified-badge.clickable {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.verified-badge.clickable:hover {
+  transform: scale(1.2);
+}
+
+/* Blockchain Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.blockchain-modal {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.2s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+  padding: 0;
+}
+
+.modal-close:hover {
+  color: #333;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-label {
+  margin: 0 0 4px;
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-value {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.tx-hash {
+  display: block;
+  background: #f5f5f5;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: "Monaco", "Consolas", monospace;
+  font-size: 0.85rem;
+  word-break: break-all;
+  margin: 0 0 16px;
+  color: #1976d2;
+}
+
+.verification-note {
+  margin: 0;
+  padding: 12px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #388e3c;
+}

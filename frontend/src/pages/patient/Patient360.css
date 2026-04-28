@@ -1,0 +1,925 @@
+/* frontend/src/pages/patient/Patient360.css */
+
+/* ==========================================
+   PATIENT 360 DASHBOARD STYLES
+========================================== */
+
+.patient360-container {
+  padding: 24px;
+  background: #f5f6fa;
+  min-height: 100%;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+.patient360-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e6ed;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.patient360-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1c2c;
+  margin: 0;
+}
+
+.fhir-badge {
+  background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.privacy-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.privacy-toggle:hover {
+  background: #f0f0f0;
+}
+
+.privacy-toggle.active {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+}
+
+.refresh-btn {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color: #3b82f6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.refresh-btn:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-btn .spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   MAIN GRID LAYOUT
+========================================== */
+.patient360-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 24px;
+  transition: grid-template-columns 0.3s ease;
+}
+
+/* When sidebar is collapsed, main content takes full width */
+.patient360-grid.sidebar-collapsed {
+  grid-template-columns: 1fr 60px;
+}
+
+.patient360-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ==========================================
+   HEALTH OVERVIEW CARDS (VITALS)
+========================================== */
+.health-overview-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.health-overview-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  color: #1a1c2c;
+  margin-bottom: 20px;
+}
+
+.fhir-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  background: #e8f4fd;
+  color: #2196f3;
+  padding: 3px 8px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  margin-left: auto;
+}
+
+.vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.vital-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vital-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+}
+
+.vital-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.vital-card.temperature .vital-icon {
+  background: linear-gradient(135deg, #fa8231 0%, #f7b731 100%);
+}
+
+.vital-card.heart-rate .vital-icon {
+  background: linear-gradient(135deg, #e74c3c 0%, #fc5c65 100%);
+}
+
+.vital-card.blood-pressure .vital-icon {
+  background: linear-gradient(135deg, #3498db 0%, #74b9ff 100%);
+}
+
+.vital-card.respiratory .vital-icon {
+  background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);
+}
+
+.vital-card.oxygen .vital-icon {
+  background: linear-gradient(135deg, #9b59b6 0%, #a29bfe 100%);
+}
+
+.vital-card.wellness .vital-icon {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+}
+
+.vital-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.vital-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.vital-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1c2c;
+  transition: filter 0.3s ease;
+}
+
+.vital-value small {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #999;
+  margin-left: 4px;
+}
+
+.vitals-updated {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: #999;
+  text-align: right;
+}
+
+/* Privacy Blur */
+.blurred {
+  filter: blur(8px);
+  user-select: none;
+}
+
+/* ==========================================
+   QUICK ACTIONS
+========================================== */
+.quick-actions-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.quick-actions-section h2 {
+  font-size: 1.2rem;
+  color: #1a1c2c;
+  margin-bottom: 16px;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.quick-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.quick-action-btn.upload {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  color: white;
+}
+
+.quick-action-btn.ai {
+  background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+  color: white;
+}
+
+.quick-action-btn.vitals {
+  background: linear-gradient(135deg, #fa8231 0%, #f7b731 100%);
+  color: white;
+}
+
+.quick-action-btn.appointments {
+  background: linear-gradient(135deg, #3498db 0%, #74b9ff 100%);
+  color: white;
+}
+
+.quick-action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.quick-action-btn svg {
+  font-size: 1.5rem;
+}
+
+/* ==========================================
+   RECENT ACTIVITIES
+========================================== */
+.activities-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.activities-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  color: #1a1c2c;
+  margin-bottom: 20px;
+}
+
+.activities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #f8f9ff;
+  border-left: 4px solid #3b82f6;
+  transition: transform 0.2s ease;
+}
+
+.activity-item:hover {
+  transform: translateX(4px);
+}
+
+.activity-item.activity-visit {
+  border-left-color: #00b894;
+}
+
+.activity-item.activity-record {
+  border-left-color: #3b82f6;
+}
+
+.activity-item.activity-ai {
+  border-left-color: #f39c12;
+}
+
+.activity-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.activity-visit .activity-icon {
+  background: rgba(0, 184, 148, 0.15);
+  color: #00b894;
+}
+
+.activity-record .activity-icon {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+.activity-ai .activity-icon {
+  background: rgba(243, 156, 18, 0.15);
+  color: #f39c12;
+}
+
+.activity-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.activity-type {
+  font-size: 0.75rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.activity-time {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.activity-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1c2c;
+  margin: 0 0 4px 0;
+  transition: filter 0.3s ease;
+}
+
+.activity-description {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.activity-doctor {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: #00b894;
+  margin-top: 6px;
+}
+
+.blockchain-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-left: 8px;
+}
+
+.no-activities {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+
+/* ==========================================
+   STATS SECTION
+========================================== */
+.stats-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.stats-section h2 {
+  font-size: 1.2rem;
+  color: #1a1c2c;
+  margin-bottom: 16px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+}
+
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* ==========================================
+   BLOCKCHAIN SIDEBAR
+========================================== */
+.blockchain-sidebar {
+  background: linear-gradient(180deg, #1a1c2c 0%, #2d3561 100%);
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+  position: sticky;
+  top: 24px;
+  height: fit-content;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+/* Collapsed State */
+.blockchain-sidebar.collapsed {
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
+  margin-bottom: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+.blockchain-sidebar.collapsed .sidebar-toggle {
+  padding: 10px 8px;
+  margin-bottom: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  height: auto;
+  width: auto;
+}
+
+.sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-toggle .toggle-label {
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.connection-status {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.connection-status.connected {
+  background: rgba(0, 184, 148, 0.2);
+  color: #00b894;
+}
+
+.connection-status.disconnected {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.blockchain-info {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.contract-address,
+.total-records {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.contract-address .label,
+.total-records .label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.contract-address .address {
+  font-size: 0.8rem;
+  font-family: monospace;
+  color: #74b9ff;
+}
+
+.total-records .value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #00b894;
+}
+
+.events-feed h4 {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.events-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.event-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.event-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.event-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(0, 184, 148, 0.2);
+  color: #00b894;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.event-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-type {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  display: block;
+}
+
+.event-record-type {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  display: block;
+  margin: 2px 0;
+}
+
+.event-meta {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.event-block {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.event-tx {
+  font-size: 0.7rem;
+  color: #74b9ff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.event-tx:hover {
+  text-decoration: underline;
+}
+
+.event-ipfs {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: monospace;
+  display: block;
+  margin-top: 4px;
+}
+
+.no-events {
+  text-align: center;
+  padding: 24px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Simplified Verification Status */
+.verification-status {
+  text-align: center;
+  padding: 24px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.verification-status .verified {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.verification-status .verified-icon {
+  font-size: 2.5rem;
+  color: #00b894;
+}
+
+.verification-status .verified-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #00b894;
+}
+
+.verification-status .records-count {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.verification-status .not-verified {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #f59e0b;
+}
+
+.connect-wallet-btn {
+  background-color: #f59e0b;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.verification-status .warning-icon {
+  font-size: 2rem;
+}
+
+.blockchain-benefits {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blockchain-benefits h4 {
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.blockchain-benefits ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blockchain-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8px;
+}
+
+.blockchain-benefits li svg {
+  color: #00b894;
+  font-size: 0.7rem;
+}
+
+/* ==========================================
+   LOADING & ERROR STATES
+========================================== */
+.patient360-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #666;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #f0f0f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+.patient360-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #e74c3c;
+}
+
+.patient360-error svg {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.patient360-error button {
+  margin-top: 16px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.patient360-error button:hover {
+  background: #5a6fd6;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+@media (max-width: 1200px) {
+  .patient360-grid {
+    grid-template-columns: 1fr 60px;
+  }
+
+  .patient360-grid.sidebar-collapsed {
+    grid-template-columns: 1fr 60px;
+  }
+
+  /* Force sidebar collapsed on smaller screens */
+  .blockchain-sidebar {
+    padding: 12px 8px;
+  }
+
+  .vitals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .patient360-container {
+    padding: 16px;
+  }
+
+  .patient360-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .vitals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vital-card {
+    padding: 16px;
+  }
+
+  .vital-value {
+    font-size: 1.2rem;
+  }
+}

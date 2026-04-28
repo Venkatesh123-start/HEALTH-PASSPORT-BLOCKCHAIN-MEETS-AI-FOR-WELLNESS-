@@ -1,0 +1,173 @@
+.vitals-entry {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.vitals-entry h2 {
+  margin: 0 0 8px;
+  color: #1e3a5f;
+  font-size: 1.5rem;
+}
+
+.vitals-entry .subtitle {
+  color: #666;
+  margin: 0 0 24px;
+  font-size: 0.95rem;
+}
+
+.success-message {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.error-message ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.vitals-form {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+}
+
+.form-group input.error {
+  border-color: #c62828;
+  background-color: #fff5f5;
+}
+
+.form-group input.error:focus {
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+}
+
+.field-error {
+  color: #c62828;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.encryption-note {
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+  margin-top: 16px;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .vitals-entry {
+    padding: 16px;
+  }
+
+  .vitals-form {
+    padding: 16px;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+}
+
+/* Number input spinner removal for cleaner look */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}

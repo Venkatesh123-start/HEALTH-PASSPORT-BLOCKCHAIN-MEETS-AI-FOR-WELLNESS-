@@ -1,0 +1,186 @@
+.signup-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f0f4f8 0%, #dbeafe 50%, #bfdbfe 100%);
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.signup-container::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.signup-container::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(96, 165, 250, 0.1);
+  border-radius: 50%;
+  bottom: -80px;
+  right: -80px;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.signup-card {
+  background: rgba(255, 255, 255, 0.98);
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+}
+
+.signup-card h2 {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 25px;
+}
+
+.role-toggle {
+  display: flex;
+  margin-bottom: 24px;
+  background: #f0f4f8;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.role-toggle button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  color: #4a5568;
+}
+
+.role-toggle .active {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #1a1c2c;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background: #f8fafc;
+}
+
+.input-group input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  background: white;
+}
+
+.input-group select,
+.role-select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background: #f8fafc;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+.input-group select:focus,
+.role-select:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  background-color: white;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.signup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+}
+
+.redirect {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.redirect a {
+  color: #3b82f6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.redirect a:hover {
+  color: #2563eb;
+}

@@ -1,0 +1,59 @@
+.appointments {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.appointments h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.appointments table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.appointments th,
+.appointments td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.appointments th {
+  background: #f0f3f7;
+}
+
+.actions button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.accept-btn {
+  background-color: #2ecc71;
+}
+
+.reject-btn {
+  background-color: #e74c3c;
+}
+
+.reschedule-btn {
+  background-color: #3498db;
+}
+
+.actions button:hover {
+  opacity: 0.8;
+}
+
+.loading,
+.no-data {
+  padding: 20px;
+  color: #555;
+  text-align: center;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "medivault",
+  "version": "1.0.0",
+  "description": "MediVault - Blockchain-based Medical Records System",
+  "scripts": {
+    "test-connectivity": "node test-connectivity.js",
+    "start:backend": "cd backend && npm run dev",
+    "start:frontend": "cd frontend && npm start",
+    "start:ml": "cd ml-service && python app.py"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "mongoose": "^8.0.0",
+    "web3": "^1.10.0"
+  },
+  "devDependencies": {},
+  "keywords": ["medical", "blockchain", "health", "records"],
+  "author": "MediVault Team",
+  "license": "MIT"
+}

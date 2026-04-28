@@ -1,0 +1,873 @@
+/* Patient AI Predictions Styles */
+
+.predict-container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.predict-header {
+  margin-bottom: 25px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+
+.predict-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2c3e50;
+  font-size: 1.6rem;
+  margin: 0 0 8px 0;
+}
+
+.predict-header h2 svg {
+  color: #3498db;
+}
+
+.predict-header p {
+  color: #7f8c8d;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Loading State */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  color: #7f8c8d;
+}
+
+.loading-state .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ecf0f1;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* No Predictions State */
+.no-predictions {
+  text-align: center;
+  padding: 60px 30px;
+  color: #7f8c8d;
+}
+
+.no-predictions .empty-icon {
+  font-size: 4rem;
+  color: #bdc3c7;
+  margin-bottom: 20px;
+}
+
+.no-predictions h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.no-predictions p {
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Predictions List */
+.predictions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Prediction Card */
+.prediction-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #e8f4fc;
+  transition: all 0.3s ease;
+}
+
+.prediction-card:hover {
+  border-color: #3498db;
+}
+
+.prediction-card.expanded {
+  border-color: #3498db;
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.15);
+}
+
+.prediction-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  cursor: pointer;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.prediction-main {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.top-disease {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.confidence-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.prediction-meta {
+  display: flex;
+  gap: 20px;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.prediction-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.expand-icon {
+  color: #7f8c8d;
+  font-size: 0.8rem;
+}
+
+/* Prediction Details */
+.prediction-details {
+  padding: 0 20px 20px;
+  border-top: 1px solid #ecf0f1;
+}
+
+.detail-section {
+  margin-top: 20px;
+}
+
+.detail-section h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  font-size: 1rem;
+}
+
+/* Predictions Results with Progress Bars */
+.predictions-results {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.result-item {
+  margin-bottom: 15px;
+}
+
+.result-item:last-child {
+  margin-bottom: 0;
+}
+
+.result-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.result-info .rank {
+  background: #ecf0f1;
+  color: #7f8c8d;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.result-info .disease-name {
+  flex: 1;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.result-info .confidence-value {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+  height: 10px;
+  background: #ecf0f1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.8s ease-out;
+  animation: progressGrow 0.8s ease-out;
+}
+
+@keyframes progressGrow {
+  from {
+    width: 0;
+  }
+}
+
+/* Symptom Tags */
+.symptom-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.symptom-tag {
+  background: #e8f4fc;
+  color: #2980b9;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+/* Vitals Grid */
+.vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.vital-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vital-label {
+  color: #7f8c8d;
+  font-size: 0.85rem;
+}
+
+.vital-value {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+/* Disclaimer */
+.disclaimer {
+  display: flex;
+  gap: 12px;
+  padding: 15px;
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: 8px;
+  color: #f57c00;
+  margin-top: 20px;
+}
+
+.disclaimer svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.disclaimer p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* ================================== */
+/* Medical Disclaimer - Prominent     */
+/* ================================== */
+.medical-disclaimer {
+  display: flex;
+  gap: 15px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border: 2px solid #ff9800;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  align-items: flex-start;
+}
+
+.medical-disclaimer .disclaimer-icon {
+  font-size: 2rem;
+  color: #e65100;
+  flex-shrink: 0;
+}
+
+.medical-disclaimer strong {
+  display: block;
+  color: #e65100;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.medical-disclaimer p {
+  margin: 0;
+  color: #bf360c;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ================================== */
+/* Tab Navigation                     */
+/* ================================== */
+.predict-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 15px;
+}
+
+.predict-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #7f8c8d;
+  transition: all 0.2s ease;
+}
+
+.predict-tabs button:hover {
+  background: #e8e8e8;
+  color: #333;
+}
+
+.predict-tabs button.active {
+  background: #3498db;
+  color: white;
+}
+
+/* ================================== */
+/* Wellness Form                      */
+/* ================================== */
+.wellness-form {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.form-header {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.form-header h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+}
+
+.form-header h2 svg {
+  color: #3498db;
+}
+
+.form-header p {
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.error-banner {
+  background: #ffebee;
+  color: #c62828;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  margin: 0 0 18px 0;
+}
+
+.section-number {
+  width: 28px;
+  height: 28px;
+  background: #3498db;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.optional-badge {
+  font-size: 0.75rem;
+  font-weight: normal;
+  background: #e8f4fc;
+  color: #2980b9;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-left: auto;
+}
+
+/* ================================== */
+/* Symptoms Grid                      */
+/* ================================== */
+.symptoms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.symptom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.symptom-checkbox:hover {
+  border-color: #3498db;
+  background: #f8fbfd;
+}
+
+.symptom-checkbox.selected {
+  border-color: #3498db;
+  background: #e8f4fc;
+}
+
+.symptom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.symptom-icon {
+  font-size: 1.4rem;
+}
+
+.symptom-label {
+  flex: 1;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.symptom-checkbox .check-icon {
+  color: #3498db;
+  font-size: 1.1rem;
+}
+
+/* ================================== */
+/* Vitals Input Grid                  */
+/* ================================== */
+.vitals-input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.vital-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vital-input-group label {
+  font-size: 0.85rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.vital-input-group input {
+  padding: 12px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.vital-input-group input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.vital-input-group input::placeholder {
+  color: #bbb;
+}
+
+/* ================================== */
+/* Form Actions                       */
+/* ================================== */
+.form-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner-small {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ================================== */
+/* Wellness Result                    */
+/* ================================== */
+.wellness-result {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.result-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #27ae60;
+  margin: 0;
+}
+
+.new-check-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #ecf0f1;
+  color: #7f8c8d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.new-check-btn:hover {
+  background: #bdc3c7;
+  color: #2c3e50;
+}
+
+/* ================================== */
+/* Wellness Score Circle              */
+/* ================================== */
+.wellness-score-section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wellness-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.wellness-inner {
+  width: 130px;
+  height: 130px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.score-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-top: 5px;
+}
+
+.score-interpretation {
+  flex: 1;
+  min-width: 200px;
+}
+
+.score-interpretation p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.score-interpretation p.good {
+  color: #27ae60;
+}
+
+.score-interpretation p.moderate {
+  color: #2ecc71;
+}
+
+.score-interpretation p.caution {
+  color: #f39c12;
+}
+
+.score-interpretation p.warning {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+/* ================================== */
+/* Predictions Section                */
+/* ================================== */
+.predictions-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.predictions-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+}
+
+/* ================================== */
+/* Recommendations Section            */
+/* ================================== */
+.recommendations-section {
+  background: #e8f5e9;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.recommendations-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2e7d32;
+  margin: 0 0 15px 0;
+}
+
+.recommendations-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recommendations-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(46, 125, 50, 0.15);
+  color: #2e7d32;
+}
+
+.recommendations-list li:last-child {
+  border-bottom: none;
+}
+
+.recommendations-list .rec-icon {
+  color: #4caf50;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.recommendations-list.compact li {
+  padding: 8px 0;
+  font-size: 0.9rem;
+}
+
+/* ================================== */
+/* Analyzed Section                   */
+/* ================================== */
+.analyzed-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.analyzed-section h4 {
+  margin: 0 0 12px 0;
+  color: #2c3e50;
+}
+
+.result-disclaimer {
+  margin-top: 20px;
+}
+
+/* ================================== */
+/* History Panel                      */
+/* ================================== */
+.history-panel .predict-header {
+  margin-bottom: 20px;
+}
+
+.go-check-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 20px;
+  transition: all 0.2s;
+}
+
+.go-check-btn:hover {
+  background: #2980b9;
+}
+
+.wellness-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.initiated-by {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #7f8c8d;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .prediction-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .prediction-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .vitals-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .symptoms-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .vitals-input-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .wellness-score-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .predict-tabs {
+    flex-direction: column;
+  }
+  
+  .predict-tabs button {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,26 @@
+.access-requests-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.access-request-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.access-request-actions button {
+  margin-right: 8px;
+  min-width: 90px;
+}
+
+.access-request-actions .bg-green-500 {
+  background: #22c55e;
+}
+
+.access-request-actions .bg-red-500 {
+  background: #ef4444;
+}

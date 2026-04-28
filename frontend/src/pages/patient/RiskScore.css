@@ -1,0 +1,199 @@
+.risk-wrapper {
+  padding: 20px;
+}
+
+.risk-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.risk-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.risk-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #333;
+}
+
+.risk-icon {
+  font-size: 1.8rem;
+}
+
+.risk-high .risk-icon { color: #dc3545; }
+.risk-medium .risk-icon { color: #ffc107; }
+.risk-low .risk-icon { color: #28a745; }
+
+.risk-score-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border: 4px solid;
+}
+
+.risk-high .score-circle { border-color: #dc3545; }
+.risk-medium .score-circle { border-color: #ffc107; }
+.risk-low .score-circle { border-color: #28a745; }
+
+.score-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.risk-high .score-value { color: #dc3545; }
+.risk-medium .score-value { color: #856404; }
+.risk-low .score-value { color: #28a745; }
+
+.score-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.level-badge {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.level-badge.risk-high {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.level-badge.risk-medium {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.level-badge.risk-low {
+  background: #d4edda;
+  color: #155724;
+}
+
+.risk-factors, .risk-recommendations {
+  margin-bottom: 20px;
+}
+
+.risk-factors h3, .risk-recommendations h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.risk-factors ul, .risk-recommendations ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.risk-factors li {
+  padding: 8px 12px;
+  background: #fff3cd;
+  border-left: 3px solid #ffc107;
+  margin-bottom: 8px;
+  border-radius: 0 6px 6px 0;
+  color: #856404;
+}
+
+.risk-recommendations li {
+  padding: 8px 12px;
+  background: #d4edda;
+  border-left: 3px solid #28a745;
+  margin-bottom: 8px;
+  border-radius: 0 6px 6px 0;
+  color: #155724;
+}
+
+.risk-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.risk-footer small {
+  color: #888;
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.refresh-btn:hover {
+  background: #0056b3;
+}
+
+.risk-loading, .risk-error, .risk-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.risk-loading .spin {
+  font-size: 2rem;
+  color: #007bff;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.risk-error {
+  color: #dc3545;
+}
+
+.risk-error svg {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.risk-error button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.risk-error button:hover {
+  background: #c82333;
+}

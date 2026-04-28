@@ -1,0 +1,129 @@
+.insurance-wrapper {
+  padding: 20px;
+}
+
+.insurance-header {
+  margin-bottom: 20px;
+}
+
+.insurance-header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.insurance-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.insurance-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.policy-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.policy-card {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.policy-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.policy-card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.policy-card-body p {
+  margin: 5px 0;
+}
+
+.coverage-details {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.claim-form {
+  display: grid;
+  gap: 15px;
+}
+
+.claim-form input,
+.claim-form select,
+.claim-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.claim-form button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.claims-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.claims-table th,
+.claims-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.claims-table th {
+  background-color: #f2f2f2;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.status-badge.active {
+  background-color: #28a745;
+}
+
+.status-badge.pending {
+  background-color: #ffc107;
+}
+
+.status-badge.approved {
+  background-color: #28a745;
+}
+
+.status-badge.rejected {
+  background-color: #dc3545;
+}
+
+.no-records {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}

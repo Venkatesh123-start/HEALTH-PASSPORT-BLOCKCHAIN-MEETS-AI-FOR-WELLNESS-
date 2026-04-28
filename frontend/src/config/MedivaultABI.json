@@ -1,0 +1,77 @@
+[
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_name", "type": "string" },
+      { "internalType": "uint8", "name": "_role", "type": "uint8" }
+    ],
+    "name": "registerUser",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_patient", "type": "address" },
+      { "internalType": "string", "name": "_recordHash", "type": "string" }
+    ],
+    "name": "addRecord",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_patient", "type": "address" }
+    ],
+    "name": "getRecords",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "string", "name": "patientName", "type": "string" },
+          { "internalType": "string", "name": "doctorName", "type": "string" },
+          { "internalType": "string", "name": "recordHash", "type": "string" },
+          { "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+        ],
+        "internalType": "struct MediVault.MedicalRecord[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_user", "type": "address" }
+    ],
+    "name": "getUser",
+    "outputs": [
+      { "internalType": "string", "name": "", "type": "string" },
+      { "internalType": "uint8", "name": "", "type": "uint8" },
+      { "internalType": "address", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "userAddress", "type": "address" },
+      { "indexed": false, "internalType": "string", "name": "name", "type": "string" },
+      { "indexed": false, "internalType": "uint8", "name": "role", "type": "uint8" }
+    ],
+    "name": "UserRegistered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "patient", "type": "address" },
+      { "indexed": false, "internalType": "string", "name": "doctorName", "type": "string" },
+      { "indexed": false, "internalType": "string", "name": "recordHash", "type": "string" },
+      { "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+    ],
+    "name": "RecordAdded",
+    "type": "event"
+  }
+]

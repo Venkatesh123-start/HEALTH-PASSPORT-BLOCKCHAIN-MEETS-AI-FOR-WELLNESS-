@@ -1,0 +1,47 @@
+.medical-records {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.medical-records h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.medical-records table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.medical-records th,
+.medical-records td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.medical-records th {
+  background: #f0f3f7;
+}
+
+.preview-btn {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.preview-btn:hover {
+  opacity: 0.8;
+}
+
+.loading,
+.no-data {
+  padding: 20px;
+  text-align: center;
+  color: #555;
+}

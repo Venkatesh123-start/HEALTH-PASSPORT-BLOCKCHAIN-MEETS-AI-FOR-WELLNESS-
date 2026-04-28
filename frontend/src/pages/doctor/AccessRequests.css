@@ -1,0 +1,66 @@
+.access-requests {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.access-requests h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.access-requests table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.access-requests th, .access-requests td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.access-requests th {
+  background-color: #f4f4f4;
+  color: #34495e;
+}
+
+.access-requests tr:hover {
+  background-color: #f9f9f9;
+}
+
+button.approve {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.approve:hover {
+  background-color: #27ae60;
+}
+
+button.reject {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.reject:hover {
+  background-color: #c0392b;
+}
+
+.loading, .no-data {
+  padding: 20px;
+  text-align: center;
+  color: #555;
+}

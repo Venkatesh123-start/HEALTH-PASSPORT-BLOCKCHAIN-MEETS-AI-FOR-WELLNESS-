@@ -1,0 +1,146 @@
+.dashboard-wrapper {
+  display: flex;
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  color: #4a5568;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  box-shadow: 4px 0 20px rgba(59, 130, 246, 0.1);
+  border-right: 1px solid #e2e8f0;
+}
+
+.sidebar .logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #3b82f6;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0 16px;
+}
+
+.sidebar li {
+  padding: 14px 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  color: #64748b;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.sidebar .logout {
+  margin-top: auto;
+  background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+  text-align: center;
+  color: white;
+}
+
+.main-content {
+  flex: 1;
+  background: #f0f4f8;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 70px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.08);
+}
+
+.topbar .topbar-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #3b82f6;
+  transition: all 0.3s ease;
+}
+
+.topbar .topbar-icon:hover {
+  transform: scale(1.1);
+}
+
+.section-content {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Guide Section */
+.guide-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.guide-container h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #1b2838;
+}
+
+.guide-card {
+  background: #ffffff;
+  padding: 28px 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.12);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.guide-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.guide-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
+}
+
+.guide-card:hover::before {
+  transform: scaleX(1);
+}
+
+.guide-card h3 {
+  margin-bottom: 12px;
+  color: #1a1c2c;
+  font-weight: 600;
+}
+
+.guide-card p {
+  color: #4a5568;
+  line-height: 1.7;
+}

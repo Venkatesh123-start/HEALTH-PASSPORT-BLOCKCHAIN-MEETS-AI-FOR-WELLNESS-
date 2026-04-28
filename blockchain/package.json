@@ -1,0 +1,21 @@
+{
+  "name": "medivault-blockchain",
+  "version": "1.0.0",
+  "description": "MediVault blockchain",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "deploy": "node scripts/deploy.js"
+  },
+  "devDependencies": {
+    "hardhat": "^2.17.0"
+  },
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "dotenv": "^17.3.1",
+    "ethers": "^5.8.0",
+    "hardhat-waffle": "^0.0.1-security",
+    "solc": "^0.8.34",
+    "web3": "^1.10.0"
+  }
+}
