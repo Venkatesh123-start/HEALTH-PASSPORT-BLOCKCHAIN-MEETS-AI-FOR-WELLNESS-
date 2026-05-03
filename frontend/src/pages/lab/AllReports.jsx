@@ -10,7 +10,7 @@ const AllReports = ({ token }) => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/labs/reports`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}`/api/labs/reports`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (response.ok) {

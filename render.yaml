@@ -1,34 +1,16 @@
-services:
-  - type: web
-    name: medivault-backend
-    env: docker
-    dockerfilePath: ./backend/Dockerfile
-    rootDir: .
-    autoDeploy: true
-    envVars:
-      - key: PORT
-        value: 5000
-      - key: MONGO_URI
-        sync: false
-      - key: JWT_SECRET
-        sync: false
-      - key: RPC_URL
-        sync: false
-      - key: PRIVATE_KEY
-        sync: false
-      - key: CONTRACT_ADDRESS
-        sync: false
-      - key: FRONTEND_URL
-        sync: false
-      - key: ENCRYPTION_SECRET
-        sync: false
-
-  - type: web
-    name: medivault-ml
-    env: docker
-    dockerfilePath: ./ml-service/Dockerfile
-    rootDir: .
-    autoDeploy: true
-    envVars:
-      - key: PORT
-        value: 5002
+# Exported from Render on 2026-05-03T14:13:54Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: HEALTH-PASSPORT-BLOCKCHAIN-MEETS-AI-FOR-WELLNESS-
+      runtime: docker
+      repo: https://github.com/Venkatesh123-start/HEALTH-PASSPORT-BLOCKCHAIN-MEETS-AI-FOR-WELLNESS-
+      plan: free
+      region: oregon
+      dockerContext: .
+      dockerfilePath: ./Dockerfile
+      autoDeployTrigger: commit

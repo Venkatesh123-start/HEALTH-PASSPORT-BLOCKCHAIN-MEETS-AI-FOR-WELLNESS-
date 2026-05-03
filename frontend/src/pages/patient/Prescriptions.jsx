@@ -16,7 +16,7 @@ const Prescriptions = ({ token, patientId }) => {
     try {
       const url =
         filter === "all"
-          ? `${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api/prescriptions/my-prescriptions`
+          ? `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}`/api/prescriptions/my-prescriptions`
           : `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api/prescriptions/my-prescriptions?status=${filter}`;
 
       const response = await fetch(url, {

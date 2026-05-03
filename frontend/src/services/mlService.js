@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // ===== CONFIGURATION =====
-const API_BASE_URL = `${process.env.REACT_APP_BACKEND_URL || `${process.env.REACT_APP_BACKEND_URL || '${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}'}`}/api`; // Backend URL
+const API_BASE_URL = `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}/api`; // Backend URL
 
 // ===== ML SERVICE FUNCTIONS =====
 export const mlService = {
