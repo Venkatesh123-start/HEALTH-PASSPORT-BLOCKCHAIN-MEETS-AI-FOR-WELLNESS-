@@ -22,7 +22,7 @@ const PatientInfo = () => {
       formData.append("patientAddress", patientAddress);
 
       // backend API to upload file to IPFS and save hash to blockchain
-      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}`/api/records/add`, formData, {
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"}/api/records/add`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

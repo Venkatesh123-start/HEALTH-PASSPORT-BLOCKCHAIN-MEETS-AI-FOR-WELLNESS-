@@ -20,7 +20,7 @@ const ApprovedDoctorAccess = (props) => {
 
     try {
       const res = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}`/api/patients/access/approved`,
+        `${process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"}/api/patients/access/approved`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

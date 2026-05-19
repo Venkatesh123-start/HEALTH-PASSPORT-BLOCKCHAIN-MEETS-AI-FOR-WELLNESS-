@@ -18,7 +18,7 @@ const DoctorsList = ({ token, patientId }) => {
     try {
       setLoading(true);
       // Fetch doctors list
-      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}`/api/doctors/list`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"}/api/doctors/list`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();

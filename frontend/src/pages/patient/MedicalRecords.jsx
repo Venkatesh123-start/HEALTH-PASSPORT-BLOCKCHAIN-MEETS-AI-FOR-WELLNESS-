@@ -20,7 +20,7 @@ const MedicalRecords = ({ token, patientId, countOnly }) => {
     setLoading(true);
     try {
       // Use my-records endpoint for patient's own encrypted records
-      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}`/api/records/my-records`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"}/api/records/my-records`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -87,7 +87,7 @@ const MedicalRecords = ({ token, patientId, countOnly }) => {
         formData.append("mimeType", encryptedResult.mimeType);
 
         // Upload to encrypted endpoint
-        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}`/api/records/upload-encrypted`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"}/api/records/upload-encrypted`, {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },
           body: formData,
